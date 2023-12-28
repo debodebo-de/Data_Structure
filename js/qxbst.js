@@ -208,7 +208,7 @@ var BST = function() { //建树
       cs["status"] = "算法开始！";
       cs["lineNo"] = 0;
       stateList.push(cs);
-
+		
       while (currentVertex != vertexText && currentVertex != null) {
         cs = createState(internalBst, vertexTraversed, edgeTraversed);
         currentVertexClass = internalBst[currentVertex]["vertexClassNumber"];
@@ -385,7 +385,6 @@ var BST = function() { //建树
 
       cs["status"] = "算法开始！";
       cs["lineNo"] = 0;
-
       stateList.push(cs);
 
       if (currentVertex == null) {
@@ -946,7 +945,7 @@ var BST = function() { //建树
         cs = createState(internalBst, vertexTraversed, edgeTraversed);
         //vertexHighlighted[currentVertexClass] = true;
         preorderHighlightVertex();
-        cs["status"] = " 访问节点 " + currentVertex;
+        cs["status"] = " 访问节点 " + currentVertex
         cs["lineNo"] = 4;
         stateList.push(cs);
 

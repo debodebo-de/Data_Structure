@@ -897,7 +897,7 @@ var BST = function() { //建树
       }
 
       cs = createState(internalBst);
-      cs["status"] = "中序遍历二叉树完成.";
+      cs["status"] = "中序遍历二叉树完成";
       cs["lineNo"] = 0;
       stateList.push(cs);
 
@@ -944,6 +944,7 @@ var BST = function() { //建树
         vertexHighlighted[currentVertexClass] = true;
         inorderHighlightVertex();
         cs["status"] = " 访问节点 " + currentVertex;
+		addResult(currentVertex);
         cs["lineNo"] = 4;
         stateList.push(cs);
 
@@ -2965,3 +2966,6 @@ var BST = function() { //建树
       }
     }, 500);
   }
+    function addResult(char) {
+        $("#result-container").append("<div id=\"cr-" + char + "\" class=\"circle circle-r\">" + char + "</div>");
+    }

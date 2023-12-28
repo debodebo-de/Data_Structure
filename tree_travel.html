@@ -114,7 +114,7 @@
       演示平台
     </span>
   </a>&nbsp;&nbsp;&nbsp;
-  <span id="title">
+       <span id="title">
 			<div class="head-nav-con">
                 <ul>
                     <li class="drop-down"><a href="list.html">线性表</a>
@@ -125,7 +125,6 @@
                                     <li><a id="title-DLL" >双链表</a></li>
                                 </ul>
                             </li>
-					       <li class="drop-down-2"><a href="#">顺序表</a> </li>
                             <li class="drop-down-2"><a href="#">多项式计算</a>
                            </li>
                         </ul>
@@ -134,12 +133,9 @@
            </div>
 		   <div class="head-nav-con">
                 <ul>
-                    <li class="drop-down"><a href="#">栈、队列和递归</a>
+                    <li class="drop-down"><a href="list.html">栈、队列和递归</a>
                         <ul class="drop-down-content">
-                            <li class="drop-down-2"><a href="list.html">栈</a>
-                                <ul class="drop-down-content-2">
-                                    <li><a id="title-Stack" >栈</a></li>>
-                                </ul>
+                            <li class="drop-down-2"><a id="title-Stack">栈</a>
                             </li>
                             <li class="drop-down-2"><a href="list.html">队列</a>
                                 <ul class="drop-down-content-2">
@@ -147,9 +143,11 @@
                                     <li><a id="title-Deque" >双向队列</a></li>
                                 </ul>
                            </li>
-						   <li class="drop-down-2"><a href="#">递归</a>
                            </li>
-						   <li class="drop-down-2"><a href="#">应用：停车场</a>
+						   <li class="drop-down-2"><a href="parking.html">应用</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-Queue" href="parking.html" >停车场</a></li>
+                                </ul>
                            </li>
                         </ul>
                     </li>
@@ -170,7 +168,7 @@
                             <li class="drop-down-2"><a href="bst.html">二叉树</a>
                                 <ul class="drop-down-content-2">
                                     <li><a id="title-BST" >二叉搜素树</a></li>
-                                    <li><a id="title-AVL" >平衡二叉搜素树</a></li>
+                                    <li><a id="title-AVL">平衡二叉搜素树</a></li>
                                 </ul>
                            </li>
                         </ul>
@@ -184,9 +182,9 @@
                             <li class="drop-down-2"><a href="graphds.html">图结构</a>
                                 <ul class="drop-down-content-2">
                                     <li><a id="menu1" onclick="GraphVisu(true,true);">无向/不带权</a></li>
-                                    <li><a id="menu1" onclick="GraphVisu(true,true);">无向/带权</a></li>
-									<li><a id="menu1" onclick="GraphVisu(true,true);">有向/不带权</a></li>
-									<li><a id="menu1" onclick="GraphVisu(true,true);">有向/带权</a></li>
+                                    <li><a id="menu2" onclick="GraphVisu(true,false);">无向/带权</a></li>
+									<li><a id="menu3" onclick="GraphVisu(false,true);">有向/不带权</a></li>
+									<li><a id="menu4" onclick="GraphVisu(false,false);">有向/带权</a></li>
                                 </ul>
                             </li>
                             <li class="drop-down-2"><a href="dfsbfs.html">图的遍历</a>
@@ -203,17 +201,20 @@
                         <ul class="drop-down-content">
                             <li class="drop-down-2"><a href="search.html">查找基础</a>
                                 <ul class="drop-down-content-2">
-                                    <li><a id='title-Linear'href="search.html">顺序查找</a></li>
-                                    <li><a id='title-Linear'href="search.html">二分查找</a></li>
+                                    <li><a id='title-Linear'>顺序查找</a></li>
+                                    <li><a id='title-Binary'>二分查找</a></li>
                                 </ul>
                             </li>
                             <li class="drop-down-2"><a id='title-Block'href="search.html">分块与索引</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id='title-Block'>分块探查</a></li>
+                                </ul>						
                             </li>
                             <li class="drop-down-2"><a href="hashtable.html">散列</a>
                                 <ul class="drop-down-content-2">
-                                    <li><a id="title-LP" href="hashtable.html">线性探查</a></li>
-                                    <li><a id="title-QP" href="hashtable.html">二次探查</a></li>
-									<li><a id="title-DH" href="hashtable.html">双重散列</a></li>
+                                    <li><a id="title-LP">线性探查</a></li>
+                                    <li><a id="title-QP">二次探查</a></li>
+									<li><a id="title-DH">双重散列</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -226,8 +227,7 @@
                         <ul class="drop-down-content">
                             <li class="drop-down-2"><a href="sorting.html">插入</a>
                                 <ul class="drop-down-content-2">
-                                    <li><a href="sorting.html" id="title-Insertion"class="">直接插入</a></li>
-                                    <li><a href="#">希尔</a></li>
+                                    <li><a id="title-Insertion">直接插入</a></li>
                                 </ul>
                             </li>
                             <li class="drop-down-2"><a href="sorting.html">交换</a>
@@ -238,28 +238,24 @@
                             </li>
                             <li class="drop-down-2"><a href="sorting.html">选择</a>
                                 <ul class="drop-down-content-2">
-                                    <li><a href="sorting.html" id="title-Selection" class="">直接选择</a></li>
+                                    <li><a id="title-Selection" >直接选择</a></li>
                                     <li><a href="ex/heap.html">堆排序</a></li>
                                 </ul>
                             </li>
-                            <li class="drop-down-2"><a href="sorting.html" id="title-Merge" >归并</a>
+                            <li class="drop-down-2"><a id="title-Merge">归并</a>
                            </li>
                         </ul>
                     </li>
                 </ul>
            </div>
-  </span>
+        </span>
 </div>
 
 
 <div id="viz"></div>
 
 <div id="current-action" class="panel" style="display: none;"><p></p></div>
-<div id="container">
-        <div id="result">
-            遍历结果:
-        </div>
-</div>
+
 <div id="actions" class="panel" style="height: 118px; width: 150px; background-color: rgb(75, 101, 186);"> 
   <p id="create">创建</p>
   <p id="insert">插入</p>
