@@ -1,455 +1,283 @@
-
-
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
-
-
+<html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
-  <meta name="keywords" content="">
-  
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>Hexo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta description="数据结构可视化演示系统">
+    <meta keyword="数据结构 算法 可视化 演示">
+    <title>数据结构演示平台</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/local.css">
+    
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/vue.js"></script>
+    <style>
+        .sousuo {
+    text-align: center;
+    padding-left: 450px;
+    padding-top: 0px;
+        }
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+        input {
+            outline-style: none;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 13px 14px;
+            width: 220px;
+            height: 20px;
+            font-size: 14px;
+            font-family: "Microsoft soft";
+        }
 
+        .ipt {
+            float: left;
+        }
 
+        .btn {
+            float: left;
+        }
 
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 7.0.0-rc1"></head>
-
+        button {
+            background: none;
+            border: none;
+            margin-left: -50px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
 
 <body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>blog of bc-orange</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/12114052_59e3a8da63.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="Welcome to the blog of bc-orange!"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+    <h1>
+      数据结构<span class="colour" style="color: rgb(254, 197, 21);">演示平台</span>
+    </h1>
+    <h2 id="subtitle">
+		数据结构和算法动态可视化
+		<!-- 次数统计 start -->
+		<center>
+			<script>
+				var caution = false
+				function setCookie(name, value, expires, path, domain, secure) {
+					var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "")
+					if (!caution || (name + "=" + escape(value)).length <= 4000)
+                       document.cookie = curCookie
+                    else if (confirm("Cookie exceeds 4KB and will be cut!"))
+                       document.cookie = curCookie
+				}
+				function getCookie(name) {
+					var prefix = name + "="
+					var cookieStartIndex = document.cookie.indexOf(prefix)
+					if (cookieStartIndex == -1)
+						return null
+					var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length)
+					if (cookieEndIndex == -1)
+						cookieEndIndex = document.cookie.length
+					return unescape(document.cookie.substring(cookieStartIndex + prefix.length,cookieEndIndex))
+				}
+				function deleteCookie(name, path, domain) {
+					if (getCookie(name)) {
+						document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT"
+					}
+				}
+				function fixDate(date) {
+					var base = new Date(0)
+					var skew = base.getTime()
+					if (skew > 0)
+						date.setTime(date.getTime() - skew)
+				}
+				var now = new Date()
+				fixDate(now)
+				now.setTime(now.getTime() + 730 * 24 * 60 * 60 * 1000)
+				var visits = getCookie("counter")
+				if (!visits)
+					visits = 1
+				else
+					visits = parseInt(visits) + 1
+				setCookie("counter", visits, now)
+				document.write("<font size=2color=black>欢迎您，您是第：" + visits + " 个访问该站点的访客")
+			</script>
+    </center>
+<!-- 次数统计 over -->
 
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/04/23/java%E5%9F%BA%E7%A1%80%E5%88%B0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
-          java基础到面向对象
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/04/23/java%E5%9F%BA%E7%A1%80%E5%88%B0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" target="_self">
-        <div>
-          JAVAIDEA debug 基础调试技能 断点在需要停留的代码位置打个标示，程序运行到这个地方会暂停  开启调试模式   step over：程序向下执行一行 step into ：进入自定义方法 step out ：跳出对应的方法    JAVA注释使用1//这个是单行注释  12345/* *这个是多行注释 * * */  12345/** *这个是文档注释，描述类的作用 *@author
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-23 05:18" pubdate>
-              2023-04-23
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/04/22/hello-world/" target="_self">
-          Hello World
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/04/22/hello-world/" target="_self">
-        <div>
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-22 23:35" pubdate>
-              2023-04-22
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
+	</h2>
+    <img src="img/favicon.ico" style="display: none;">
+    <img src="img/cross_white.png" style="display: none;">
+    <div id="main">
+        <div class="sousuo">
+            <div class="ipt">
+                <input type="text" name="" id="content" placeholder="输入关键词搜索">
             </div>
-          </div>
+            <!-- <input type="button" name="" id="search"> -->
+            <div class="btn">
+                <button onclick="toHtml()">
+                    <svg t="1637644951499" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2455" width="36" height="36" >
+                        <path
+                            d="M425.9 144.9c38.1 0 75 7.4 109.6 22.1 33.5 14.2 63.7 34.5 89.6 60.4 25.9 25.9 46.2 56 60.4 89.6 14.7 34.7 22.1 71.6 22.1 109.6s-7.4 75-22.1 109.6c-14.2 33.5-34.5 63.7-60.4 89.6-25.9 25.9-56 46.2-89.6 60.4-34.7 14.7-71.6 22.1-109.6 22.1s-75-7.4-109.6-22.1c-33.5-14.2-63.7-34.5-89.6-60.4-25.9-25.9-46.2-56-60.4-89.6-14.7-34.7-22.1-71.6-22.1-109.6s7.4-75 22.1-109.6c14.2-33.5 34.5-63.7 60.4-89.6 25.9-25.9 56-46.2 89.6-60.4 34.7-14.6 71.6-22.1 109.6-22.1m0-80c-199.8 0-361.7 161.9-361.7 361.7s161.9 361.7 361.7 361.7 361.7-161.9 361.7-361.7S625.7 64.9 425.9 64.9z"
+                            fill="#2C2C2C" p-id="2456"></path>
+                        <path
+                            d="M715.3 654l226.3 226.3c15.6 15.6 15.6 40.9 0 56.6-15.6 15.6-40.9 15.6-56.6 0L658.7 710.6c-15.6-15.6-15.6-40.9 0-56.6 15.6-15.6 41-15.6 56.6 0z"
+                            fill="#5ABE64" p-id="2457"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-      </div>
-    
+        <ul class="list">
+            <li class="viz" id="list">
+                <div class="li-wrapper">
+                    <a class="thumbnail" href="list.html">
+                        <img id="img/list" src="img/list.gif">
+                    </a>
+                    <div class="info">
+                        <h3>
+                          <a id="sortingtext" href="list.html">线性表&nbsp;</a> 
+                        </h3>
+                    </div>
+                </div>
+            </li>
+            <li class="viz" id="list">
+                <div class="li-wrapper">
+                    <a class="thumbnail" href="list.html">
+                        <img id="img/list" src="img/hashtable.gif">
+                    </a>
+                    <div class="info">
+                        <h3><a id="listtext" href="list.html">栈、队列和递归&nbsp;</a> </h3>
+                    </div>
+                </div>
+            </li>
+            <li class="viz" id="tree_travel">
+                <div class="li-wrapper">
+                    <a class="thumbnail" href="zx.html">
+                        <img id="img/tree_travel" src="img/tree_travel.gif">
+                    </a>
+                    <div class="info">
+                        <h3><a id="tree_travel" href="zx.html">树&nbsp;</a></h3>
+                    </div>
+                </div>
+            </li>
+            <li class="viz" id="graphds">
+                <div class="li-wrapper">
+                    <a class="thumbnail" href="graphds.html">
+                        <img id="img/graphds" src="img/graphds.gif">
 
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
+                    </a>
+                    <div class="info">
+                        <h3><a id="graphds" href="graphds.html">图&nbsp;</a></h3>
+                    </div>
+                </div>
+            </li>
+            <li class="viz" id="sssp">
+                <div class="li-wrapper">
+                    <a class="thumbnail" href="search.html">
+                        <img id="img/search" src="img/search.gif">
+                    </a>
+                    <div class="info">
+                        <h3><a id="searchtext" href="search.html">查找</a></h3>
+                    </div>
+                </div>
+            </li>
+            <li class="viz" id="sorting">
+                <div class="li-wrapper">
+                    <a class="thumbnail" href="sorting.html">
+                        <img id="img/sorting" src="img/sorting.gif">
+                    </a>
+                    <div class="info">
+                        <h3><a id="dfsbfstext" href="sorting.html">排序</a></h3>
+                    </div>
+                </div>
+            </li>
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+    </div>
+    <div id="bottom-bar">
+        <a id="trigger-about">关于</a>
+        <a id="trigger-team">团队</a>
+    </div>
+    <div id="dark-overlay"></div>
+    <div id="about" class="overlays">
+        <h4 style="background-color: rgb(254, 197, 21);">关于</h4><img class="close-overlay" src="img/cross_white.png">
+        <div class="content">
         </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
     </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <div> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    <div id="team" class="overlays">
+        <h4 style="background-color: rgb(254, 197, 21);">团队</h4><img class="close-overlay" src="img/cross_white.png">
+        <div class="content">
+        </div>
     </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        Views: 
-        <span id="busuanzi_value_site_pv"></span>
-        
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        Visitors: 
-        <span id="busuanzi_value_site_uv"></span>
-        
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-
-
-<span class="post-meta-item-icon">
-  <i class="fa fa-eye"></i>
-  <span class="post-meta-item-text">
-    <span id="busuanzi_container_pageviews">
-      
-    </span>
-  </span>
-</span>
-<span class="post-meta-item-icon">
-  <i class="fa fa-user"></i>
-  <span class="post-meta-item-text">
-    <span id="busuanzi_container_uv">
-      
-    </span>
-  </span>
-</span>
-
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
-  </noscript>
+    <script>
+        new Vue({
+            //
+            el: '#app',
+            data: {
+               
+            },
+            methods: {}
+        });
+        var xxbList = ['线性表', '线性'，'单链表', '双链表', '顺序表', '多项式计算']
+        var zhanList = ['栈', '队列', '循环队列', '递归', '停车场'];
+        var treeList = ['树', '前序遍历', '中序遍历', '后序遍历', '层次遍历', '二叉搜索树', '平衡二叉搜索树'];
+        var tuList = ['图','有向图', '无向图', '图的遍历', '最小生成树']
+        var searchList = ['查找', '顺序查找', '二分查找', '线性探查', '二次探查', '双重散列'];
+        var sortList = ['排序', '插入', '冒泡', '快速', '选择', '堆', '归并']
+        var totalList = [];//定义一个循环器，减少代码冗余,初始化为空
+        totalList = totalList.concat(xxbList, zhanList, treeList, tuList, searchList, sortList);
+        console.log(totalList);
+        function toHtml() {
+            //城市默认跳转景点
+            // console.log('hello world');
+            var getval = document.getElementById("content").value;
+            // console.log(getval);//str要被包含在getval内，否则执行404
+            for (var xxb = 0; xxb < xxbList.length; xxb++) {
+                if (getval.match(xxbList[xxb])) {
+                    localStorage.name = [getval,xxbList[0],'线性表'];
+                    console.log(localStorage.name);
+                    return document.location.href = ("list.html" );
+                }
+            }
+            for (var zhan = 0; zhan < zhanList.length; zhan++) {
+                if (getval.match(zhanList[zhan])) {
+                    localStorage.name = [getval,zhanList[0],'栈'];
+                    return document.location.href = ("list.html");
+                }
+            }
+            // getval.match("树")
+            for (var tree = 0; tree < treeList.length; tree++) {
+                if (getval.match(treeList[tree])) {
+                    localStorage.name = [getval,treeList[0],'树'];
+                    return document.location.href = ("zx.html" );
+                }
+            }
+            for (var tu = 0; tu < tuList.length; tu++) {
+                if (getval.match(tuList[tu])) {
+                    localStorage.name = [getval,tuList[0],'图'];
+                    return document.location.href = ("graphds.html");
+                }
+            }
+            for (var search = 0; search < searchList.length; search++) {
+                if (getval.match(searchList[search])) {
+                    localStorage.name = [getval,searchList[0],'查找'];
+                    return document.location.href = ("search.html");
+                }
+            }
+            for (var sort = 0; sort < sortList.length; sort++) {
+                if (getval.match(sortList[sort])) {
+                    localStorage.name = [getval,sortList[0],'排序'];
+                    return document.location.href = ("sorting.html");
+                }
+            }
+            for (var i = 0; i < totalList.length; i++) {
+                if (!getval.match(totalList[i])) {
+                    alert("很抱歉，没有找到你要的信息");
+                    return ;
+                    // return document.location.href = ("../404.html?content=404");
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>
