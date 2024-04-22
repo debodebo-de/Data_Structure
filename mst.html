@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta description="最小生成树的数据结构演示">
+    <meta keyword="数据结构 最小生成树 算法 可视化 演示">
+    <title>最小生成树 - 数据结构演示</title>
+    <link rel="icon" type="image/png" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/viz.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/local.css">
+    <link rel="stylesheet" href="css/visual.css">
+    <link rel="stylesheet" href="css/drawgraph.css">
+    <link rel="stylesheet" href="css/mst.css">
+    
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/d3.v3.js"></script>
+    <script src="js/viz.js"></script>
+    <script src="js/common.js"></script>
+	<style>
+        * {
+            box-sizing: border-box;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            outline: none;
+        }
+        ol,
+        ul,
+        li {
+            list-style: none;
+        }
+        .head-nav-con {
+			display: inline-block;
+        }
+        .head-nav-con ul li {
+            text-align: center;
+        }
+        .head-nav-con ul li:hover {
+            background: #4F4F4F;
+        }
+        .head-nav-con ul a {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+			width:120px;
+            color: white;
+        }
+        .head-nav-con .drop-down {
+            position: relative;
+        }
+        .head-nav-con .drop-down-content {
+            padding: 0;
+            display: none;
+            position: absolute;
+            background: #000000;
+        }
+        .head-nav-con .drop-down-content li:hover > a {
+            background-color:#4F4F4F;
+        }
+        .head-nav-con .drop-down:hover .drop-down-content {
+            display: block;
+        }
+        .head-nav-con .drop-down-2 {
+            position: relative;
+        }
+        .head-nav-con .drop-down-content-2 {
+            padding: 0;
+            display: none;
+            position: absolute;
+            background-color: #000000;
+            right: -130px;
+            top: 0;
+        }
+        .head-nav-con .drop-down-content-2 > li {
+            float: none;
+            background-color: #000000;
+        }
+        .head-nav-con .drop-down-content-2 li:hover a {
+            background-color: #4F4F4F;
+        }
+        .head-nav-con .drop-down-2:hover .drop-down-content-2 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top-bar">
+        <a id="home" href="index.html">主页</a> &nbsp;&nbsp;&nbsp;
+       <span id="title">
+			<div class="head-nav-con">
+                <ul>
+                    <li class="drop-down"><a href="list.html">线性表</a>
+                        <ul class="drop-down-content">
+                            <li class="drop-down-2"><a href="list.html">链表</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-LL" >单链表</a></li>
+                                    <li><a id="title-DLL" >双链表</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down-2"><a href="#">多项式计算</a>
+                           </li>
+                        </ul>
+                    </li>
+                </ul>
+           </div>
+		   <div class="head-nav-con">
+                <ul>
+                    <li class="drop-down"><a href="list.html">栈、队列和递归</a>
+                        <ul class="drop-down-content">
+                            <li class="drop-down-2"><a id="title-Stack">栈</a>
+                            </li>
+                            <li class="drop-down-2"><a href="list.html">队列</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-Queue" >队列</a></li>
+                                    <li><a id="title-Deque" >双向队列</a></li>
+                                </ul>
+                           </li>
+                           </li>
+						   <li class="drop-down-2"><a href="parking.html">应用</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-Queue" href="parking.html" >停车场</a></li>
+                                </ul>
+                           </li>
+                        </ul>
+                    </li>
+                </ul>
+           </div>
+		  <div class="head-nav-con">
+                <ul>
+                    <li class="drop-down"><a href="tree_travel.html">树</a>
+                        <ul class="drop-down-content">
+                            <li class="drop-down-2"><a href="tree_travel.html">树的遍历</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a href="tree_travel.html">前序遍历</a></li>
+                                    <li><a href="tree_travel_m.html">中序遍历</a></li>
+									<li><a href="tree_travel_b.html">后序遍历</a></li>
+									<li><a href="tree_travel_l.html">层次遍历</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down-2"><a href="bst.html">二叉树</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-BST" >二叉搜素树</a></li>
+                                    <li><a id="title-AVL">平衡二叉搜素树</a></li>
+                                </ul>
+                           </li>
+                        </ul>
+                    </li>
+                </ul>
+           </div>
+		  <div class="head-nav-con">
+                <ul>
+                    <li class="drop-down"><a href="graphds.html">图</a>
+                        <ul class="drop-down-content">
+                            <li class="drop-down-2"><a href="graphds.html">图结构</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="menu1" onclick="GraphVisu(true,true);">无向/不带权</a></li>
+                                    <li><a id="menu2" onclick="GraphVisu(true,false);">无向/带权</a></li>
+									<li><a id="menu3" onclick="GraphVisu(false,true);">有向/不带权</a></li>
+									<li><a id="menu4" onclick="GraphVisu(false,false);">有向/带权</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down-2"><a href="dfsbfs.html">图的遍历</a>
+                            </li>
+                            <li class="drop-down-2"><a href="mst.html">最小生成树</a>
+                           </li>
+                        </ul>
+                    </li>
+                </ul>
+           </div>
+		  <div class="head-nav-con">
+                <ul>
+                    <li class="drop-down"><a href="search.html">查找</a>
+                        <ul class="drop-down-content">
+                            <li class="drop-down-2"><a href="search.html">查找基础</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id='title-Linear'>顺序查找</a></li>
+                                    <li><a id='title-Binary'>二分查找</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down-2"><a id='title-Block'href="search.html">分块与索引</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id='title-Block'>分块探查</a></li>
+                                </ul>						
+                            </li>
+                            <li class="drop-down-2"><a href="hashtable.html">散列</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-LP">线性探查</a></li>
+                                    <li><a id="title-QP">二次探查</a></li>
+									<li><a id="title-DH">双重散列</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+           </div>
+		  <div class="head-nav-con">
+                <ul>
+                    <li class="drop-down"><a href="sorting.html">排序</a>
+                        <ul class="drop-down-content">
+                            <li class="drop-down-2"><a href="sorting.html">插入</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-Insertion">直接插入</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down-2"><a href="sorting.html">交换</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-Bubble">冒泡</a></li>
+                                    <li><a id="title-Quick">快速</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down-2"><a href="sorting.html">选择</a>
+                                <ul class="drop-down-content-2">
+                                    <li><a id="title-Selection" >直接选择</a></li>
+                                    <li><a href="ex/heap.html">堆排序</a></li>
+                                </ul>
+                            </li>
+                            <li class="drop-down-2"><a id="title-Merge">归并</a>
+                           </li>
+                        </ul>
+                    </li>
+                </ul>
+           </div>
+        </span>
+    </div>
+    <div id="viz">
+    </div>
+    <div id="current-action" class="panel" style="display: none;"></div>
+    <div id="actions" class="panel" style="height: 145px; width: 0px; background-color: rgb(255, 138, 39);">
+        <p id="draw" class="execAction" onclick="drawGraph()">绘制图</p>
+        <p id="samples" class="execAction">图的示例</p>
+        <p id="kruskals" class="execAction" onclick="kruskals()">Kruskal算法</p>
+        <p id="prims" class="execAction">Prim算法</p>
+    </div>
+    <div id="actions-hide" class="panel-hide" style="padding-top: 64px; padding-bottom: 65px; background-color: rgb(255, 138, 39);"><img src="img/arrow_white_right.png" title="show/hide actions panel" class="rotateLeft"></div>
+    <div id="actions-extras">
+        <div class="draw action-menu-pullout" style="left: 193px;">
+            <div id="draw-err" class="err" style="float: left;"></div>
+        </div>
+        <div class="samples action-menu-pullout" style="left: 193px;">
+            <div id="sample1" class="execAction new-menu-option coloured-menu-option" onclick="sample(MST_EXAMPLE_CP4P10)" style="float: left; color: rgb(255, 255, 255); background-color: rgb(255, 138, 39);">
+                <p> 示例 1 </p>
+            </div>
+            <div id="sample2" class="execAction new-menu-option coloured-menu-option" onclick="sample(MST_EXAMPLE_CP4P14)" style="float: left; color: rgb(255, 255, 255); background-color: rgb(255, 138, 39);">
+                <p> 示例 2 </p>
+            </div>
+            <div id="sample3" class="execAction new-menu-option coloured-menu-option" onclick="sample(MST_EXAMPLE_K5)" style="float: left; color: rgb(255, 255, 255); background-color: rgb(255, 138, 39);">
+                <p> 五点完全图</p>
+            </div>
+            <div id="sample4" class="execAction new-menu-option coloured-menu-option" onclick="sample(MST_EXAMPLE_RAIL)" style="float: left; color: rgb(255, 255, 255); background-color: rgb(255, 138, 39);">
+                <p> 轨道 </p>
+            </div>
+            <div id="sample5" class="execAction new-menu-option coloured-menu-option" onclick="sample(MST_EXAMPLE_TESSELLATION)" style="float: left; color: rgb(255, 255, 255); background-color: rgb(255, 138, 39);">
+                <p> 细分曲面图 </p>
+            </div>
+            <div id="samples-err" class="err" style="float: left;">
+            </div>
+        </div>
+        <div class="kruskals action-menu-pullout" style="left: 193px;">
+            <div id="kruskals-err" class="err" style="float: left;"></div>
+        </div>
+        <div class="prims action-menu-pullout" style="left: 193px;">
+            <div id="prims-input" class="new-menu-option" style="float: left;">
+                <input type="text" id="prim-v" autocomplete="off" value="0">
+            </div>
+            <div id="prims-go" class="execAction coloured-menu-option" onclick="prims()" style="float: left; color: rgb(255, 255, 255); background-color: rgb(255, 138, 39);">
+                <p>开始</p>
+            </div>
+            <div id="prims-err" class="err" style="float: left;"></div>
+        </div>
+    </div>
+    <div id="status" class="panel" style="background-color: rgb(75, 101, 186);">
+        <p></p>
+    </div>
+    <div id="status-hide" class="panel-hide" style="background-color: rgb(75, 101, 186);"><img src="img/arrow_white_right.png" title="show/hide status panel"></div>
+    <div id="codetrace" class="panel" style="color: rgb(0, 0, 0); background-color: rgb(254, 197, 21);">
+        <p id="code1" style="padding-top: 10px;"></p>
+        <p id="code2"></p>
+        <p id="code3"></p>
+        <p id="code4"></p>
+        <p id="code5"></p>
+        <p id="code6"></p>
+        <p id="code7" style="padding-bottom: 10px;"></p>
+    </div>
+    <div id="codetrace-hide" class="panel-hide" style="background-color: rgb(254, 197, 21);"><img src="img/arrow_black_right.png" title="show/hide codetrace panel"></div>
+    <div id="left-bar"></div>
+    <div id="right-bar"></div>
+    <div id="bottom-bar">
+        <a id="trigger-about">关于</a>
+        <a id="trigger-team">团队</a>
+        <!-- <a id="trigger-terms">Terms of use</a>-->
+    </div>
+    <div id="media-controls">
+        <div id="speed-control">慢
+            <div id="speed-input" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+                <a class="ui-slider-handle ui-state-default ui-corner-all" href="mst.html#" style="left: 68.421052631579%;"></a>
+            </div>快
+        </div>
+        <span id="go-to-beginning" class="media-control-button" title="跳到开始" onclick="goToBeginning()"><img src="img/goToBeginning.png" alt="go to beginning"></span>
+        <span id="previous" class="media-control-button" title="后退一步" onclick="stepBackward()"><img src="img/prevFrame.png" alt="previous frame"></span>
+        <span id="pause" class="media-control-button" title="暂停" onclick="pause()"><img src="img/pause.png" alt="pause"></span>
+        <span id="play" class="media-control-button" title="开始" onclick="play()" style="display: none;"><img src="img/play.png" alt="play"></span>
+        <span id="next" class="media-control-button" title="前进一步" onclick="stepForward()"><img src="img/nextFrame.png" alt="next frame"></span>
+        <span id="go-to-end" class="media-control-button" title="跳到结尾" onclick="goToEnd()"><img src="img/goToEnd.png" alt="go to end"></span>
+        <div id="progress-bar" class="media-control-button ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%; background-color: rgb(167, 212, 30);"></div>
+            <a class="ui-slider-handle ui-state-default ui-corner-all" href="mst.html" style="left: 0%;"></a>
+        </div>
+    </div>
+    <div id="dark-overlay"></div>
+    <div id="drawgraph" class="overlays">
+    </div>
+    <div id="about" class="overlays">
+        <h4 style="background-color: rgb(167, 212, 30);">关于</h4><img class="close-overlay" src="img/cross_white.png">
+        <div class="content">
+        </div>
+    </div>
+    <div id="team" class="overlays">
+        <h4 style="background-color: rgb(167, 212, 30);">团队</h4><img class="close-overlay" src="img/cross_white.png">
+        <div class="content">
+        </div>
+    </div>
+    <script src="js/constant.js"></script>
+    <script src="js/properties.js"></script>
+    <script src="js/helperObjects.js"></script>
+    <script src="js/misc.js"></script>
+    <script src="js/Widget.js"></script>
+    <script src="js/GraphWidget.js"></script>
+    <script src="js/GraphVertexWidget.js"></script>
+    <script src="js/GraphEdgeWidget.js"></script>
+    <script src="js/drawgraph.js"></script>
+    <script src="js/visual_final.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/mst.js"></script>
+</body>
+
+</html>
