@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>hdu eating master</title>
+<style>
+        input {
+            outline-style: none;
+            border: 1px solid rgba(240,92,54,0.40);
+            border-radius: 30px;
+            padding: 13px 14px;
+            width: 120px;
+            height: 10px;
+            font-size: 10px;
+            font-family: "华文中宋";
+			background:rgba(240,92,54,0.10)
+        }
+
+        .ipt {
+            float: left;
+        }
+
+        .btn {
+            float: left;
+        }
+
+        #ss {
+            background: none;
+            border: none;
+            margin-left: 80px;
+            margin-top: -32px;
+            cursor: pointer;
+        }
+</style>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="dist/aos.css" />
+	<link rel="stylesheet" type="text/css" href="css/vendor.css">
+	<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-body homepage post-template">
+	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+		<defs>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 15 15">
+				<path fill="none" stroke="currentColor"
+					d="M11 3.5h1M4.5.5h6a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4Zm3 10a3 3 0 1 1 0-6a3 3 0 0 1 0 6Z" />
+			</symbol>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 15 15">
+				<path fill="none" stroke="currentColor"
+					d="M7.5 14.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Zm0 0v-8a2 2 0 0 1 2-2h.5m-5 4h5" />
+			</symbol>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 15 15">
+				<path fill="currentColor"
+					d="m14.478 1.5l.5-.033a.5.5 0 0 0-.871-.301l.371.334Zm-.498 2.959a.5.5 0 1 0-1 0h1Zm-6.49.082h-.5h.5Zm0 .959h.5h-.5Zm-6.99 7V12a.5.5 0 0 0-.278.916L.5 12.5Zm.998-11l.469-.175a.5.5 0 0 0-.916-.048l.447.223Zm3.994 9l.354.353a.5.5 0 0 0-.195-.827l-.159.474Zm7.224-8.027l-.37.336l.18.199l.265-.04l-.075-.495Zm1.264-.94c.051.778.003 1.25-.123 1.606c-.122.345-.336.629-.723 1l.692.722c.438-.42.776-.832.974-1.388c.193-.546.232-1.178.177-2.006l-.998.066Zm0 3.654V4.46h-1v.728h1Zm-6.99-.646V5.5h1v-.959h-1Zm0 .959V6h1v-.5h-1ZM10.525 1a3.539 3.539 0 0 0-3.537 3.541h1A2.539 2.539 0 0 1 10.526 2V1Zm2.454 4.187C12.98 9.503 9.487 13 5.18 13v1c4.86 0 8.8-3.946 8.8-8.813h-1ZM1.03 1.675C1.574 3.127 3.614 6 7.49 6V5C4.174 5 2.421 2.54 1.966 1.325l-.937.35Zm.021-.398C.004 3.373-.157 5.407.604 7.139c.759 1.727 2.392 3.055 4.73 3.835l.317-.948c-2.155-.72-3.518-1.892-4.132-3.29c-.612-1.393-.523-3.11.427-5.013l-.895-.446Zm4.087 8.87C4.536 10.75 2.726 12 .5 12v1c2.566 0 4.617-1.416 5.346-2.147l-.708-.706Zm7.949-8.009A3.445 3.445 0 0 0 10.526 1v1c.721 0 1.37.311 1.82.809l.74-.671Zm-.296.83a3.513 3.513 0 0 0 2.06-1.134l-.744-.668a2.514 2.514 0 0 1-1.466.813l.15.989ZM.222 12.916C1.863 14.01 3.583 14 5.18 14v-1c-1.63 0-3.048-.011-4.402-.916l-.556.832Z" />
+			</symbol>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="pinterest" viewBox="0 0 15 15">
+				<path fill="none" stroke="currentColor"
+					d="m4.5 13.5l3-7m-3.236 3a2.989 2.989 0 0 1-.764-2V7A3.5 3.5 0 0 1 7 3.5h1A3.5 3.5 0 0 1 11.5 7v.5a3 3 0 0 1-3 3a2.081 2.081 0 0 1-1.974-1.423L6.5 9m1 5.5a7 7 0 1 1 0-14a7 7 0 0 1 0 14Z" />
+			</symbol>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 15 15">
+				<path fill="currentColor"
+					d="m1.61 12.738l-.104.489l.105-.489Zm11.78 0l.104.489l-.105-.489Zm0-10.476l.104-.489l-.105.489Zm-11.78 0l.106.489l-.105-.489ZM6.5 5.5l.277-.416A.5.5 0 0 0 6 5.5h.5Zm0 4H6a.5.5 0 0 0 .777.416L6.5 9.5Zm3-2l.277.416a.5.5 0 0 0 0-.832L9.5 7.5ZM0 3.636v7.728h1V3.636H0Zm15 7.728V3.636h-1v7.728h1ZM1.506 13.227c3.951.847 8.037.847 11.988 0l-.21-.978a27.605 27.605 0 0 1-11.568 0l-.21.978ZM13.494 1.773a28.606 28.606 0 0 0-11.988 0l.21.978a27.607 27.607 0 0 1 11.568 0l.21-.978ZM15 3.636c0-.898-.628-1.675-1.506-1.863l-.21.978c.418.09.716.458.716.885h1Zm-1 7.728a.905.905 0 0 1-.716.885l.21.978A1.905 1.905 0 0 0 15 11.364h-1Zm-14 0c0 .898.628 1.675 1.506 1.863l.21-.978A.905.905 0 0 1 1 11.364H0Zm1-7.728c0-.427.298-.796.716-.885l-.21-.978A1.905 1.905 0 0 0 0 3.636h1ZM6 5.5v4h1v-4H6Zm.777 4.416l3-2l-.554-.832l-3 2l.554.832Zm3-2.832l-3-2l-.554.832l3 2l.554-.832Z" />
+			</symbol>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="dribble" viewBox="0 0 15 15">
+				<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+					d="M4.839 1.024c3.346 4.041 5.096 7.922 5.704 12.782M.533 6.82c5.985-.138 9.402-1.083 11.97-4.216M2.7 12.594c3.221-4.902 7.171-5.65 11.755-4.293M14.5 7.5a7 7 0 1 0-14 0a7 7 0 0 0 14 0Z" />
+			</symbol>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="arrow-right" viewBox="0 0 24 24">
+				<path fill="currentColor"
+					d="M17.92 11.62a1 1 0 0 0-.21-.33l-5-5a1 1 0 0 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l5-5a1 1 0 0 0 .21-.33a1 1 0 0 0 0-.76Z" />
+			</symbol>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="folder" viewBox="0 0 18 18" fill="none">
+				<path
+					d="M14.0946 4.04689H9.56953L9.33895 3.3259C9.18947 2.90285 8.9122 2.53678 8.54555 2.27842C8.1789 2.02006 7.74102 1.8822 7.29258 1.88393H4.00687C3.43356 1.88393 2.88374 2.11181 2.47835 2.51744C2.07296 2.92308 1.84521 3.47324 1.84521 4.04689V13.4197C1.84521 13.9934 2.07296 14.5435 2.47835 14.9492C2.88374 15.3548 3.43356 15.5827 4.00687 15.5827H14.0946C14.6679 15.5827 15.2177 15.3548 15.6231 14.9492C16.0285 14.5435 16.2562 13.9934 16.2562 13.4197V6.20985C16.2562 5.6362 16.0285 5.08604 15.6231 4.68041C15.2177 4.27477 14.6679 4.04689 14.0946 4.04689ZM14.8151 13.4197C14.8151 13.6109 14.7392 13.7943 14.6041 13.9295C14.469 14.0648 14.2857 14.1407 14.0946 14.1407H4.00687C3.81577 14.1407 3.63249 14.0648 3.49736 13.9295C3.36223 13.7943 3.28632 13.6109 3.28632 13.4197V4.04689C3.28632 3.85567 3.36223 3.67229 3.49736 3.53707C3.63249 3.40186 3.81577 3.3259 4.00687 3.3259H7.29258C7.44364 3.32551 7.591 3.37264 7.71384 3.46061C7.83667 3.54859 7.92877 3.67297 7.97711 3.81617L8.3662 4.99859C8.41454 5.1418 8.50664 5.26618 8.62947 5.35415C8.75231 5.44213 8.89967 5.48925 9.05073 5.48886H14.0946C14.2857 5.48886 14.469 5.56483 14.6041 5.70004C14.7392 5.83525 14.8151 6.01863 14.8151 6.20985V13.4197Z"
+					fill="black" />
+			</symbol>
+			<symbol xmlns="http://www.w3.org/2000/svg" id="clock" viewBox="0 0 18 18" fill="none">
+				<path
+					d="M11.0931 9.19042L9.58134 8.3173V5.12838C9.58134 4.93716 9.50543 4.75377 9.3703 4.61856C9.23517 4.48335 9.05189 4.40739 8.86079 4.40739C8.66969 4.40739 8.48641 4.48335 8.35128 4.61856C8.21615 4.75377 8.14024 4.93716 8.14024 5.12838V8.73331C8.14024 8.85987 8.17354 8.9842 8.23678 9.0938C8.30002 9.2034 8.39098 9.29441 8.50051 9.35769L10.3725 10.4392C10.4545 10.4873 10.5452 10.5186 10.6393 10.5315C10.7335 10.5444 10.8292 10.5385 10.9211 10.5142C11.013 10.4899 11.0991 10.4477 11.1746 10.3899C11.2501 10.3322 11.3134 10.26 11.3609 10.1777C11.4084 10.0953 11.4392 10.0044 11.4515 9.91012C11.4637 9.81583 11.4572 9.72004 11.4323 9.62828C11.4074 9.53652 11.3646 9.45059 11.3064 9.37544C11.2482 9.3003 11.1757 9.23741 11.0931 9.19042ZM8.86079 1.52344C7.43567 1.52344 6.04256 1.94629 4.85762 2.73852C3.67268 3.53075 2.74913 4.65678 2.20376 5.97421C1.6584 7.29165 1.5157 8.74131 1.79373 10.1399C2.07175 11.5385 2.75801 12.8231 3.76572 13.8315C4.77343 14.8398 6.05733 15.5265 7.45506 15.8047C8.8528 16.0828 10.3016 15.9401 11.6182 15.3944C12.9349 14.8487 14.0602 13.9246 14.852 12.7389C15.6437 11.5532 16.0663 10.1593 16.0663 8.73331C16.0642 6.82178 15.3044 4.98914 13.9535 3.63748C12.6027 2.28582 10.7712 1.52554 8.86079 1.52344ZM8.86079 14.5012C7.7207 14.5012 6.60621 14.1629 5.65826 13.5291C4.7103 12.8954 3.97146 11.9945 3.53517 10.9406C3.09887 9.88665 2.98472 8.72691 3.20714 7.60805C3.42956 6.48919 3.97857 5.46145 4.78474 4.65479C5.5909 3.84814 6.61802 3.2988 7.73621 3.07624C8.8544 2.85369 10.0134 2.96791 11.0667 3.40447C12.12 3.84103 13.0203 4.58031 13.6537 5.52884C14.2871 6.47737 14.6252 7.59253 14.6252 8.73331C14.6233 10.2625 14.0154 11.7284 12.9347 12.8097C11.8541 13.891 10.389 14.4993 8.86079 14.5012Z"
+					fill="black" />
+			</symbol>
+		</defs>
+	</svg>
+
+	<a class="menu-btn"><span></span></a>
+
+	<div class="container-fluid">
+
+		<header id="header-nav" class="col-lg-2 position-fixed px-5 bg-white h-100">
+			<div class="header-wrap d-flex flex-column justify-content-between h-100">
+				<div class="navigation">
+					<div class="site-logo mt-5">
+						<a href="index.html">
+							<img src="images/main-logo.png" alt="logo" class="img-fluid">
+						</a>
+					</div>
+            <div class="ipt">
+                <input type="text" name="" id="content" placeholder="">
+            </div>
+            <!-- <input type="button" name="" id="search"> -->
+                <button onclick="toHtml()" id="ss" class="btn">
+                    <svg t="1637644951499" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2455" width="20" height="20">
+                        <path
+                            d="M425.9 144.9c38.1 0 75 7.4 109.6 22.1 33.5 14.2 63.7 34.5 89.6 60.4 25.9 25.9 46.2 56 60.4 89.6 14.7 34.7 22.1 71.6 22.1 109.6s-7.4 75-22.1 109.6c-14.2 33.5-34.5 63.7-60.4 89.6-25.9 25.9-56 46.2-89.6 60.4-34.7 14.7-71.6 22.1-109.6 22.1s-75-7.4-109.6-22.1c-33.5-14.2-63.7-34.5-89.6-60.4-25.9-25.9-46.2-56-60.4-89.6-14.7-34.7-22.1-71.6-22.1-109.6s7.4-75 22.1-109.6c14.2-33.5 34.5-63.7 60.4-89.6 25.9-25.9 56-46.2 89.6-60.4 34.7-14.6 71.6-22.1 109.6-22.1m0-80c-199.8 0-361.7 161.9-361.7 361.7s161.9 361.7 361.7 361.7 361.7-161.9 361.7-361.7S625.7 64.9 425.9 64.9z"
+                            fill="#F05C36" p-id="2456"></path>
+                        <path
+                            d="M715.3 654l226.3 226.3c15.6 15.6 15.6 40.9 0 56.6-15.6 15.6-40.9 15.6-56.6 0L658.7 710.6c-15.6-15.6-15.6-40.9 0-56.6 15.6-15.6 41-15.6 56.6 0z"
+                            fill="#F05C36" p-id="2457"></path>
+                    </svg>
+                </button>
+					<nav id="one-page-menu" class="vertical-menu my-5">
+            <ul class="menu-list list-unstyled">
+              <li><a href="#home" class="nav-link">主页</a></li>
+              <li><a href="#about" class="nav-link">区域美食</a></li>
+              <li><a href="#experience" class="nav-link">随机选择</a></li>
+              <li><a href="#portfolio" class="nav-link">十佳菜品</a></li>
+              <li>
+                <a class="nav-link btn-toggle d-flex justify-content-between align-items-center collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#pages-collapse" aria-expanded="false">
+                  美食目录
+                </a>
+                <div id="pages-collapse" class="collapse">
+                  <ul class="list-unstyled py-3">
+                    <li>
+                      <a href="breakfast.html">早餐</a>
+                    </li>
+                    <li>
+                      <a href="lunch.html">中餐</a>
+                    </li>
+                    <li>
+                      <a href="dinner.html">晚餐<span class="badge bg-primary">热</span></a>
+                    </li>
+                    <li>
+                      <a href="else.html">零食</a>
+                    </li>
+                    <li>
+                      <a href="drink.html">饮品<span class="badge bg-primary">热</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li><a href="#contact" class="nav-link">反馈</a></li>
+            </ul>
+						</ul>
+					</nav>
+				</div>
+				<div class="mt-5">
+					<div class="email-links">
+						<a href="mailto:contact@yoursite.com"
+							class="py-3 my-3 border-bottom d-flex">contact@yoursite.com</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="col-lg-10 offset-lg-2">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+
+						<section class="pt-5 mt-5" data-aos="fade-up">
+							<div class="post-meta d-flex gap-3 my-4">
+								<span class="post-category">
+									<svg width="16" height="16" viewBox="0 0 24 24">
+										<use xlink:href="#folder"></use>
+									</svg>
+									中餐 </span>
+							</div>
+							<h1 class="display-4 txt-fx slide-up">经典永流传牛肉粉</h1>
+							<img src="images/2.jpg" alt="single post" class="img-fluid my-4">
+						</section>
+
+						<article class="post-item" data-aos="fade-up" data-aos-delay="100">
+
+							<div class="post-content py-5">
+								<div class="post-description">
+									<p>去食堂吃最爱的F+牛肉饭，因为量大很实惠，肉也很多，最重要的是在人多的饭点，它的上菜速度很快。好味道营养都能照顾到！还能拼着吃！有十几种搭配可供选择！如果不知道吃什么，可以选择拼盘！脆皮鸡拼茄子，牛肉拼脆皮鸡，拼着吃更好吃！</p>
+									<h4>美食图鉴</h4>
+									      <div class="aos-item" data-aos="flip-down">
+        <div class="aos-item__inner_13"><h3></h3></div>
+      </div>
+      <div class="aos-item" data-aos="flip-up">
+        <div class="aos-item__inner_14"><h3></h3></div>
+      </div>
+      <div class="aos-item" data-aos="fade-down">
+        <div class="aos-item__inner_15"><h3></h3></div>
+      </div>
+      <div class="aos-item" data-aos="fade-in">
+        <div class="aos-item__inner_16"><h3></h3></div>
+      </div>
+      <div class="aos-item" data-aos="fade-down">
+        <div class="aos-item__inner_21"><h3></h3></div>
+      </div>
+      <div class="aos-item" data-aos="fade-in">
+        <div class="aos-item__inner_22"><h3></h3></div>
+      </div>
+
+								</div>
+							</div>
+						</article>
+
+						<section id="post-comment" class="mt-5">
+							<div class="container">
+								<div class="row">
+									<div class="comments-wrap">
+										<h3 class="my-3">
+											<span class="count"></span> 评论
+										</h3>
+										<div class="comment-list">
+											<article class="comment-item py-3 row border-bottom">
+												<div class="col-lg-2">
+													<img src="images/commentor-item1.jpg" alt="default"
+														class="commentor-image rounded-circle img-fluid">
+												</div>
+												<div class="col-lg-10">
+													<div class="author-post">
+														<div class="comment-meta d-flex gap-3">
+															<h5 class="author-name">张三</h5>
+															<span class="meta-date">2024-10-10</span>
+														</div>
+														<p>这简直是料理的极致体验！饭粒吸收了石锅的香气，再加上那金黄酥脆的锅巴，每一口都是满满的幸福感。配菜也相当丰富，色彩缤纷的蔬菜和肉类搭配得天衣无缝，不仅营养均衡，而且味道绝佳。。</p>
+														<div class="comments-reply">
+															<a href="#">回复</a>
+														</div>
+													</div>
+													<article class="comment-item pb-3 row child-comments">
+														<div class="col-lg-2">
+															<img src="images/commentor-item2.jpg" alt="default"
+																class="commentor-image rounded-circle img-fluid">
+														</div>
+														<div class="col-lg-10">
+															<div class="author-post">
+																<div class="comment-meta d-flex gap-3">
+																	<h5 class="author-name">李四</h5>
+																	<span class="meta-date">2024-11-10</span>
+																</div>
+																<p>我必须说，这是我尝试过的最糟糕之一。饭粒过于干硬，缺乏石锅特有的香味，仿佛只是普通炒饭放在了一个石头容器里。锅巴部分更是让人失望，远没有达到应有的香脆口感。配菜也显得单一乏味，整体而言，这顿饭并没有给我留下好印象。</p>
+																<div class="comments-reply">
+																	<a href="#">回复</a>
+																</div>
+															</div>
+														</div>
+													</article>
+													<article class="comment-item pb-3 row child-comments">
+														<div class="col-lg-2">
+															<img src="images/commentor-item3.jpg" alt="default"
+																class="commentor-image rounded-circle img-fluid">
+														</div>
+														<div class="col-lg-10">
+															<div class="author-post">
+																<div class="comment-meta d-flex gap-3">
+																	<h5 class="author-name">王五</h5>
+																	<span class="meta-date">2024-12-10</span>
+																</div>
+																<p>这家餐厅的石锅饭真是道地美味。饭粒软糯，与石锅的烟熏味完美融合，每一粒都散发着诱人的香气。特别是锅巴，恰到好处的焦香和脆度，让人忍不住一口接一口。配菜的调味也非常传统，辣酱、腌制品和新鲜蔬菜的组合，让整个石锅饭层次分明，口味丰富。</p>
+																<div class="comments-reply">
+																	<a href="#">回复</a>
+																</div>
+															</div>
+														</div>
+													</article>
+												</div>
+											</article>
+											<article class="comment-item py-3 row border-bottom">
+												<div class="col-lg-2">
+													<img src="images/commentor-item2.jpg" alt="default"
+														class="commentor-image rounded-circle img-fluid">
+												</div>
+												<div class="col-lg-10">
+													<div class="author-post">
+														<div class="comment-meta d-flex gap-3">
+															<h5 class="author-name">李六</h5>
+															<span class="meta-date">2024-10-10</span>
+														</div>
+														<p>对于喜欢健康饮食的我来说，这石锅饭是个不错的选择。米饭选用的是健康的糙米，虽然口感比白米略硬一些，但更加有嚼劲。石锅保温效果好，即使聊天吃得慢，饭菜依然热乎乎的。配菜中加入了各种绿色蔬菜，既增加了营养价值，也为饭菜增添了清新感。</p>
+														<div class="comments-reply">
+															<a href="#">回复</a>
+														</div>
+													</div>
+												</div>
+											</article>
+											<article class="comment-item py-3 row">
+												<div class="col-lg-2">
+													<img src="images/commentor-item3.jpg" alt="default"
+														class="commentor-image rounded-circle img-fluid">
+												</div>
+												<div class="col-lg-10">
+													<div class="author-post">
+														<div class="comment-meta d-flex gap-3">
+															<h5 class="author-name">徐琪</h5>
+															<span class="meta-date">2024-11-0</span>
+														</div>
+														<p>这家店的石锅饭真是物超所值。饭量十足，配料丰富多样，从海鲜到菌菇再到各式蔬菜，每一种食材都新鲜可口。尤其值得一提的是他们的独家酱料，微辣而带有一丝丝甜味，让整个石锅饭的味道提升到了一个新的层次。无论是和家人还是朋友聚餐，这里的石锅饭都是不二之选。</p>
+														<div class="comments-reply">
+															<a href="#">回复</a>
+														</div>
+													</div>
+												</div>
+											</article>
+										</div>
+									</div>
+									<div class="comment-respond mt-5">
+										<h3>发表评论</h3>
+										<p>您的联系方式不会被公开。必填字段标记为*</p>
+										<form method="post" class="form-group padding-small">
+											<div class="row">
+												<div class="col-lg-12 mb-3">
+													<textarea class="form-control ps-3 pt-3" id="comment" name="comment"
+														placeholder="您的评论 *"></textarea>
+												</div>
+												<div class="col-lg-6 mb-3">
+													<input class="form-control ps-3" type="text" name="author"
+														id="author" placeholder="您的名字 *">
+												</div>
+												<div class="col-lg-6">
+													<input class="form-control ps-3" type="email" name="email"
+														id="email" placeholder="您的联系方式 *">
+												</div>
+												<div class="col-lg-12">
+													<label class="d-flex align-items-center">
+														<input type="checkbox" class="checked-box me-2">
+														<span class="label-body">将我的姓名、电子邮件和网站保存在这个浏览器。</span>
+													</label>
+												</div>
+												<div class="col-lg-12 mt-3">
+													<button
+														class="btn btn-lg btn-primary text-uppercase btn-rounded-none w-100"
+														type="submit">发布评论</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</section>
+
+
+					</div>
+				</div>
+			</div>
+		</main>
+
+	</div>
+
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+		crossorigin="anonymous"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/script.js"></script>
+    <script src="dist/aos.js"></script>
+    <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+    </script>
+  <script>
+        var cityList = ['杭州', '张家界', '杭州', '桑植', '永定区', '武陵源']
+        var siteList = ['泡面', '零食'];
+        var hotelList = ['奶茶', '饮品'];
+        var foodList = ['晚餐', '火锅', '家常菜']
+        var totalList = [];//定义一个循环器，减少代码冗余,初始化为空
+        totalList = totalList.concat(cityList, siteList, hotelList, foodList);
+        console.log(totalList);
+        function toHtml() {
+            //城市默认跳转景点
+            // console.log('hello world');
+            var getval = document.getElementById("content").value;
+            // console.log(getval);//str要被包含在getval内，否则执行404
+            for (var city = 0; city < cityList.length; city++) {
+                if (getval.match(cityList[city])) {
+                    localStorage.name = [getval,cityList[0],'景点'];
+                    console.log(localStorage.name);
+                    return document.location.href = ("hangzhou.html");
+                }
+            }
+            for (var site = 0; site < siteList.length; site++) {
+                if (getval.match(siteList[site])) {
+                    localStorage.name = [getval,siteList[0],'景点'];
+                    return document.location.href = ("else.html");
+                }
+            }
+            // getval.match("酒店")
+            for (var hotel = 0; hotel < hotelList.length; hotel++) {
+                if (getval.match(hotelList[hotel])) {
+                    localStorage.name = [getval,hotelList[0],'酒店'];
+                    return document.location.href = ("drink.html");
+                }
+            }
+            for (var food = 0; food < foodList.length; food++) {
+                if (getval.match(foodList[food])) {
+                    localStorage.name = [getval,foodList[0],'美食'];
+                    return document.location.href = ("dinner.html");
+                }
+            }
+            for (var i = 0; i < totalList.length; i++) {
+                if (!getval.match(totalList[i])) {
+                    alert("很抱歉，没有找到你要的信息");
+                    return ;
+                    // return document.location.href = ("../404.html?content=404");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
