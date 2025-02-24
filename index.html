@@ -241,17 +241,16 @@
         </div>
     </div>
     <script>
-        var xxbList = ['线性表', '线性','单链表', '双链表', '顺序表', '多项式计算']
+        var xxbList = ['线性表', '线性','单链表', '双链表', '顺序表', '多项式计算'];
         var zhanList = ['栈', '队列', '循环队列', '递归', '停车场'];
         var treeList = ['树', '前序遍历', '中序遍历', '后序遍历', '层次遍历', '二叉搜索树', '平衡二叉搜索树'];
-        var tuList = ['图','有向图', '无向图', '图的遍历', '最小生成树']
+        var tuList = ['图','有向图', '无向图', '图的遍历', '最小生成树'];
         var searchList = ['查找', '顺序查找', '二分查找', '线性探查', '二次探查', '双重散列'];
-        var sortList = ['排序', '插入', '冒泡', '快速', '选择', '堆', '归并']
+        var sortList = ['排序', '插入', '冒泡', '快速', '选择', '堆', '归并'];
         var totalList = [];//定义一个循环器，减少代码冗余,初始化为空
         totalList = totalList.concat(xxbList, zhanList, treeList, tuList, searchList, sortList);
         console.log(totalList);
         function toHtml() {
-            /市默认跳转景点
             // console.log('hello world');
             var getval = document.getElementById("content").value;
             // console.log(getval);//str要被包含在getval内，否则执行404
